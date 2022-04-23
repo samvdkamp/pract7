@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class StringProcessor {
 
-    ArrayList<Object> processen = new ArrayList<Object>();
+    ArrayList<OpmaakProces> processen = new ArrayList<OpmaakProces>();
 
     public StringProcessor(){
 
@@ -10,13 +10,13 @@ public class StringProcessor {
 
     public String verwerk(String input) {
         String str = input;
-        for(Object proces : processen) {
-            str = ((OpmaakProces) proces).maakOp(str);
+        for(OpmaakProces proces : processen) {
+            str = proces.maakOp(str);
         }
         return str;
    }
 
-    public void voegProcesToe(Object proces){
+    public void voegProcesToe(OpmaakProces proces){
         processen.add(proces);
     }
 }
